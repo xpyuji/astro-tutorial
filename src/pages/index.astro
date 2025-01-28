@@ -1,5 +1,5 @@
 ---
-
+import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -9,8 +9,16 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>My Astro Site</title>
+    <style>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+    </style>
 	</head>
 	<body>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
 		<h1>My Astro Site</h1>
 	</body>
 </html>
