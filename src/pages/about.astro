@@ -1,30 +1,33 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-const pageTitle = "About Me";
+const pageTitle = 'About Me';
 
 const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
+  firstName: 'Sarah',
+  country: 'Canada',
+  occupation: 'Technical Writer',
+  hobbies: ['photography', 'birdwatching', 'baseball']
 };
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
 
 const happy = true;
 const finished = false;
 const goal = 3;
 
-const skillColor = "navy";
+const skillColor = 'navy';
 const fontWeight = 'bold';
-const textCase = 'upperCase'
+const textCase = 'upperCase';
 ---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
-    <style define:vars={{skillColor, fontWeight, textCase}}>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
       h1 {
         color: purple;
         font-size: 4rem;
@@ -32,25 +35,35 @@ const textCase = 'upperCase'
       .skill {
         color: var(--skillColor);
         font-weight: var(--fontWeight);
-        text-transform: var(--textCase)
+        text-transform: var(--textCase);
       }
     </style>
-	</head>
-	<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-
+  </head>
+  <body>
+    <Header />
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
-    <p>I am working through Astro's intoroductory tutorial. This is the second page on my wibsite, and it's the first one I built myself!</p>
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+    <p>
+      I am working through Astro's intoroductory tutorial. This is the second
+      page on my wibsite, and it's the first one I built myself!
+    </p>
+    <p>
+      This site will update as I complete more of the tutorial, so keep checking
+      back and see how my journey is going!
+    </p>
     <p>Here are a few facts about me:</p>
     <ul>
       <li>My name is {identity.firstName}.</li>
-      <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-      {identity.hobbies.length >= 2 &&
-        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+      <li>
+        I live in {identity.country} and I work as a {identity.occupation}.
+      </li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Two of my hobbies are: {identity.hobbies[0]} and{' '}
+            {identity.hobbies[1]}
+          </li>
+        )
       }
     </ul>
     <p>My skills are:</p>
@@ -61,6 +74,13 @@ const textCase = 'upperCase'
 
     {finished && <p>I finished this tutorial!</p>}
 
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-	</body>
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days.</p>
+      ) : (
+        <p>My goal is not 3 days.</p>
+      )
+    }
+    <Footer />
+  </body>
 </html>
